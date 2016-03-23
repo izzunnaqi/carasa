@@ -77,7 +77,7 @@
   </nav>
 </div>
 
-  <!-- Modal Structure -->
+  <!-- Modal Reset Password Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
       <h4 class="red-text">Change Password</h4>
@@ -113,11 +113,46 @@
     </div>
   </div>
 
+  <!-- Modal Add to Cart Structure -->
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+    <h4 class="red-text">Nasi Goreng</h4>
+  
+    <div class="row">
+      <img class="col s6" src="img/sotoPadang.jpg">
+      <form class="col s6">
+        <div class="row">
+          <div class="input-field">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+            <label for="icon_prefix2">Catatan</label>
+          </div>
+          <div>
+            <p class="range-field">
+              Jumlah <input type="range" id="test5" min="0" max="100">
+            </p>
+            <p>Harga Total : IDR 360.000,-</p>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <p>Kategori : Makanan</p>
+    <p>Harga Satuan : IDR 18.000,-</p>
+
+    </div>
+    <div class="modal-footer">
+      <button class="modal-action modal-close btn waves-effect waves-light" type="submit" name="action">Add to Cart
+        <i class="material-icons right">shopping_cart</i>
+      </button>
+    </div>
+  </div>
+
   <div class="container">
     <div class="progress">
       <div class="determinate" style="width: 70%"></div>
     </div>
-    <!-- Breadcrumbs Structure TEMP////////////////////////-->
+    <!-- Breadcrumbs Structure-->
         <div class="grey-text col s12">
           <a href="#!"></i>Home</a>
           <span>&nbsp>&nbsp</span>
@@ -134,7 +169,8 @@
             <span class="card-title">Soto Padang</span>
           </div>
           <div class="card-content">
-            <p>IDR 18.000,-<a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#"><i class="material-icons right">shopping_cart</i></a></p>
+            <!-- Modal Trigger -->
+            <p>IDR 18.000,-<a class="modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#modal2"><i class="material-icons right">shopping_cart</i></a></p>
           </div>
         </div>
       </div>
@@ -145,7 +181,8 @@
             <span class="card-title">Soto Padang</span>
           </div>
           <div class="card-content">
-            <p>IDR 18.000,-<a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#"><i class="material-icons right">shopping_cart</i></a></p>
+            <!-- Modal Trigger -->
+            <p>IDR 18.000,-<a class="modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#modal2"><i class="material-icons right">shopping_cart</i></a></p>
           </div>
         </div>
       </div>
@@ -156,42 +193,8 @@
             <span class="card-title">Soto Padang</span>
           </div>
           <div class="card-content">
-            <p>IDR 18.000,-<a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#"><i class="material-icons right">shopping_cart</i></a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s4">
-        <div class="card">
-          <div class="card-image">
-            <img src="img/sotoPadang.jpg">
-            <span class="card-title">Soto Padang</span>
-          </div>
-          <div class="card-content">
-            <p>IDR 18.000,-<a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#"><i class="material-icons right">shopping_cart</i></a></p>
-          </div>
-        </div>
-      </div>
-      <div class="col s4">
-        <div class="card">
-          <div class="card-image">
-            <img src="img/sotoPadang.jpg">
-            <span class="card-title">Soto Padang</span>
-          </div>
-          <div class="card-content">
-            <p>IDR 18.000,-<a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#"><i class="material-icons right">shopping_cart</i></a></p>
-          </div>
-        </div>
-      </div>
-      <div class="col s4">
-        <div class="card">
-          <div class="card-image">
-            <img src="img/sotoPadang.jpg">
-            <span class="card-title">Soto Padang</span>
-          </div>
-          <div class="card-content">
-            <p>IDR 18.000,-<a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#"><i class="material-icons right">shopping_cart</i></a></p>
+            <!-- Modal Trigger -->
+            <p>IDR 18.000,-<a class="modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#modal2"><i class="material-icons right">shopping_cart</i></a></p>
           </div>
         </div>
       </div>
@@ -204,7 +207,8 @@
             <span class="card-title">Soto Padang</span>
           </div>
           <div class="card-content">
-            <p>IDR 18.000,-<a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#"><i class="material-icons right">shopping_cart</i></a></p>
+            <!-- Modal Trigger -->
+            <p>IDR 18.000,-<a class="modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#modal2"><i class="material-icons right">shopping_cart</i></a></p>
           </div>
         </div>
       </div>
@@ -215,7 +219,8 @@
             <span class="card-title">Soto Padang</span>
           </div>
           <div class="card-content">
-            <p>IDR 18.000,-<a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#"><i class="material-icons right">shopping_cart</i></a></p>
+            <!-- Modal Trigger -->
+            <p>IDR 18.000,-<a class="modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#modal2"><i class="material-icons right">shopping_cart</i></a></p>
           </div>
         </div>
       </div>
@@ -226,7 +231,46 @@
             <span class="card-title">Soto Padang</span>
           </div>
           <div class="card-content">
-            <p>IDR 18.000,-<a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#"><i class="material-icons right">shopping_cart</i></a></p>
+            <!-- Modal Trigger -->
+            <p>IDR 18.000,-<a class="modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#modal2"><i class="material-icons right">shopping_cart</i></a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s4">
+        <div class="card">
+          <div class="card-image">
+            <img src="img/sotoPadang.jpg">
+            <span class="card-title">Soto Padang</span>
+          </div>
+          <div class="card-content">
+            <!-- Modal Trigger -->
+            <p>IDR 18.000,-<a class="modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#modal2"><i class="material-icons right">shopping_cart</i></a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col s4">
+        <div class="card">
+          <div class="card-image">
+            <img src="img/sotoPadang.jpg">
+            <span class="card-title">Soto Padang</span>
+          </div>
+          <div class="card-content">
+            <!-- Modal Trigger -->
+            <p>IDR 18.000,-<a class="modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#modal2"><i class="material-icons right">shopping_cart</i></a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col s4">
+        <div class="card">
+          <div class="card-image">
+            <img src="img/sotoPadang.jpg">
+            <span class="card-title">Soto Padang</span>
+          </div>
+          <div class="card-content">
+            <!-- Modal Trigger -->
+            <p>IDR 18.000,-<a class="modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="Add to Cart" href="#modal2"><i class="material-icons right">shopping_cart</i></a></p>
           </div>
         </div>
       </div>
