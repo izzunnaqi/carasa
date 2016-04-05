@@ -24,7 +24,7 @@
 
       <!-- Modal Trigger -->
       <div class="row center">
-        <a class="red-text modal-trigger" href="#modal1">I forgot my password</a>
+        <a class="red-text modal-trigger" href="{{route('getemail')}}">I forgot my password</a>
       </div>
 
       <!-- Modal Structure -->

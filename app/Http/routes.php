@@ -33,8 +33,17 @@ Route::group(['middleware' => 'auth'], function()
 	'uses'=>'Auth\AuthController@getDashboard'
 	]);
 });
-/**Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);*/
+Route::get('password/email', 
+[
+		'as'=>'getemail',
+		'uses'=>'Auth\PasswordController@getEmail'
+]);
+Route::post('password/email', 
+[
+	'as'=>'postemail',
+	'uses'=>'Auth\PasswordController@postEmail'
+]);
+// Password reset routes...
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', 'Auth\PasswordController@postReset');
 
