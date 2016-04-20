@@ -15,7 +15,7 @@ class PageController extends Controller
     {
         if(Auth::user()->role=='user') {
             return view('master.adminpage');
-        }else {
+        } else {
         	$admins = Person::where('role','=','admin')->get();
         	return view('admin.listadmin', compact('admins'));
         }
