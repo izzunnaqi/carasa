@@ -113,6 +113,87 @@
     </div>
   </div>
 
+
+  <!-- Modal Add to Cart Structure -->
+  <div id="modal98" class="modal">
+    <div class="modal-content">
+    <h4 class="red-text">Nasi Goreng</h4>
+  
+    <div class="row">
+      <img class="col s6" src="img/sotoPadang.jpg">
+      <form class="col s6">
+        <div class="row">
+          <div class="input-field">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+            <label for="icon_prefix2">Catatan (optional)</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">queue</i>
+            <input value="1" id="icon_prefix" type="text" class="validate">
+            <label for="icon_prefix2">Jumlah</label>
+          </div>
+          <table>
+            <tbody>
+              <tr>
+                <td>Harga Total</td>
+                <td>: IDR 18.000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+
+    <div class="row">
+      <div class="col s6">
+        <table>
+          <tbody>
+            <tr>
+              <td>Kategori</td>
+              <td>: Makanan</td>
+            </tr>
+            <tr>
+              <td>Harga Satuan</td>
+              <td>: IDR 18.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col s6">
+        <table>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+          <button class="modal-action modal-close btn waves-effect waves-light right" type="submit" name="action">Save
+            <i class="material-icons right">system_update_alt</i>
+          </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    </div>
+<!--     <div class="modal-footer">
+      <button class="modal-action modal-close btn waves-effect waves-light" type="submit" name="action">Add to Cart
+        <i class="material-icons right">shopping_cart</i>
+      </button>
+    </div> -->
+  </div>
+
+
   <div class="container">
     <div class="progress">
       <div class="determinate" style="width: 70%"></div>
@@ -125,9 +206,11 @@
         </div> <h6></h6>
 
       <h5 class="red-text lighten-1">Informasi Pemesanan</h5>
+
       <table>
         <thead>
         </thead>
+
         <tbody>
           <tr>
             <td>Tanggal</td>
@@ -201,7 +284,7 @@
             <td>2</td>
             <td>36K</td>
             <td>ini catatan 2</td>
-            <td><a href="#!"><i class="fa fa-edit"></i></a>
+            <td><a class="modal-trigger" href="#modal98"><i class="fa fa-edit"></i></a>
               <a href="#!"><i class="fa fa-remove"></i></a>
             </td>
           </tr>
@@ -211,7 +294,7 @@
             <td>4</td>
             <td>72K</td>
             <td>ini catatan lagi</td>
-            <td><a href="#!"><i class="fa fa-edit"></i></a>
+            <td><a class="modal-trigger" href="#modal98"><i class="fa fa-edit"></i></a>
               <a href="#!"><i class="fa fa-remove"></i></a>
             </td>
           </tr>
