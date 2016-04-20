@@ -125,11 +125,9 @@
         </div> <h6></h6>
 
       <h5 class="red-text lighten-1">Informasi Pemesanan</h5>
-
       <table>
         <thead>
         </thead>
-
         <tbody>
           <tr>
             <td>Tanggal</td>
