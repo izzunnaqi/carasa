@@ -7,8 +7,8 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="{{asset('css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="{{asset('css/style.css'}}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -125,27 +125,71 @@
           <div class="input-field">
             <i class="material-icons prefix">mode_edit</i>
             <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-            <label for="icon_prefix2">Catatan</label>
+            <label for="icon_prefix2">Catatan (optional)</label>
           </div>
-          <div>
-            <p class="range-field">
-              Jumlah <input type="range" id="test5" min="0" max="100">
-            </p>
-            <p>Harga Total : IDR 360.000,-</p>
+          <div class="input-field">
+            <i class="material-icons prefix">queue</i>
+            <input value="1" id="icon_prefix" type="text" class="validate">
+            <label for="icon_prefix2">Jumlah</label>
           </div>
+          <table>
+            <tbody>
+              <tr>
+                <td>Harga Total</td>
+                <td>: IDR 18.000</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </form>
     </div>
 
-    <p>Kategori : Makanan</p>
-    <p>Harga Satuan : IDR 18.000,-</p>
+    <div class="row">
+      <div class="col s6">
+        <table>
+          <tbody>
+            <tr>
+              <td>Kategori</td>
+              <td>: Makanan</td>
+            </tr>
+            <tr>
+              <td>Harga Satuan</td>
+              <td>: IDR 18.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col s6">
+        <table>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+          <button class="modal-action modal-close btn waves-effect waves-light right" type="submit" name="action">Add to Cart
+            <i class="material-icons right">shopping_cart</i>
+          </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
 
     </div>
-    <div class="modal-footer">
+<!--     <div class="modal-footer">
       <button class="modal-action modal-close btn waves-effect waves-light" type="submit" name="action">Add to Cart
         <i class="material-icons right">shopping_cart</i>
       </button>
-    </div>
+    </div> -->
   </div>
 
   <div class="container">
