@@ -8,7 +8,7 @@ use App\Http\Requests;
 use Auth;
 use Hash;
 use App\Http\Controllers\Controller;
-use App\Product;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -19,7 +19,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
+
+        $product = Product::paginate(6);
 
         return view('product', compact('product'));        
     }
@@ -31,7 +32,7 @@ class ProductController extends Controller
      */
     public function filterFood() 
     {
-        $food = Product::where('id_kategori', '=', '1')->get();
+        $food = Product::where('id_kategori', '=', '1')->paginate(6);
 
         return view('food', compact('food'));
 
@@ -44,7 +45,7 @@ class ProductController extends Controller
      */
      public function filterDrink() 
     {
-        $drink = Product::where('id_kategori', '=', '2')->get();
+        $drink = Product::where('id_kategori', '=', '2')->paginate(6);
 
         return view('drink', compact('drink'));
 
@@ -69,6 +70,20 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function sort(Request $request)
+    {
+        $string =  $request->input('sortselect');
+        $product = Product::orderBy($string,'ASC')->paginate(6);
+        return view('product', compact('product'));   
+    }
+
+    public function search(Request $request)
+    {
+        $key=$request->get('keyword');
+        $product = Product::where('nama','like','%'.$key.'%')->paginate(6);
+        return view('product', compact('product'));
     }
 
     /**

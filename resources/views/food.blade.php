@@ -26,6 +26,7 @@
     <li><a href="{{route('logout')}}">Logout<i class="fa fa-sign-out right"></i></a></li>
   </ul>
   <ul id="dropdown2" class="dropdown-content">
+    <li><a href="{{route('product')}}"><i class="fa fa-circle right"></i>All Category</a></li>
     <li><a href="{{route('food')}}"><i class="fa fa-cutlery right"></i>Makanan</a></li>
     <li><a href="{{route('drink')}}"><i class="fa fa-glass right"></i>Minuman</a></li>
   </ul>
@@ -61,6 +62,7 @@
           </form>
         </li>
         <li><h6>CATEGORY</h6></li>
+        <li><a href="{{route('product')}}"><i class="fa fa-circle right"></i>All Category</a></li>
         <li><a href="{{route('food')}}"><i class="fa fa-cutlery right"></i>Makanan</a></li>
         <li><a href="{{route('drink')}}"><i class="fa fa-glass right"></i>Minuman</a></li>
         <li><h6>{{ Auth::user()->nama }}</h6></li>
@@ -112,7 +114,28 @@
       </button>
     </div>
   </div>
+  <br/>
+  <br/>
 
+                                <form action="{{URL::to('/search/')}}" method = "POST">
+                                  {!! csrf_field() !!}
+                                    <input type="text" class="form-control" name="keyword" placeholder="Search Product">
+                                    <span class="input-group-btn">
+                                     <button class="btn btn-default" type="Submit">Search Product</button>
+                                 </form>
+
+
+  <form action="{{route('sortproduct')}}" method="POST">
+           {!! csrf_field() !!}
+    <select class="browser-default" name="sortselect">
+    <option value="nama">Nama</option>
+    <option value="harga">Harga</option>
+    </select>
+       <button type="submit" name="action">Sort
+        </button>
+  </form>
+
+  
   <!-- Modal Add to Cart Structure -->
   @foreach ($food as $foods)
   <div id="modal{{$foods->product_id}}" class="modal">
@@ -178,7 +201,7 @@
     </div>
 
 
-    <div class="right">
+   <!--  <div class="right">
       <ul class="pagination">
         <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
         <li class="active"><a href="#!">1</a></li>
@@ -188,6 +211,9 @@
         <li class="waves-effect"><a href="#!">5</a></li>
         <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
       </ul>
+    </div> -->
+    <div class="right">    
+      {!! $food->render() !!}
     </div>
     <div class="progress">
       <div class="determinate" style="width: 70%"></div>

@@ -8,6 +8,7 @@ env:
     - setup=basic
     - APP_ENV=staging
     - APP_DEBUG=true
+    - APP_KEY=qQYZ6ZiDV36vjkltjkyAaMUxQP504w5U
     - DB_CONNECTION=mysql
     - CACHE_DRIVER=file
     - SESSION_DRIVER=file
@@ -19,8 +20,5 @@ install:
 - if [[ $setup = 'basic' ]]; then travis_retry composer install --no-interaction --prefer-source; fi
 - if [[ $setup = 'stable' ]]; then travis_retry composer update --prefer-source --no-interaction --prefer-stable; fi
 - if [[ $setup = 'lowest' ]]; then travis_retry composer update --prefer-source --no-interaction --prefer-lowest --prefer-stable; fi
-
-before_script:
-- php artisan key:generate
 
 script: vendor/bin/phpunit

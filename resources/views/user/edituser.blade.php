@@ -50,14 +50,14 @@
                 <div class="left_col scroll-view">
 
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-hospital-o"></i> <span>CARASA</span></a>
+                        <a href="{{route('dashboard')}}" class="site_title"><span>CARASA</span></a>
                     </div>
                     <div class="clearfix"></div>
 
                     <!-- menu prile quick info -->
                     <div class="profile">
                         <div class="profile_pic">
-                            <img src="{{asset('images/img.jpg')}}" alt="..." class="img-circle profile_img">
+                            <img src="{{asset('img/carasaIcon.png')}}" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
                             <span>Welcome, {{Auth::user()->username}}</span>
@@ -69,7 +69,7 @@
                     <br />
 
                     <!-- sidebar menu -->
-                    @include('admin.sidemenu')
+                    @include('user.sidemenu')
                     <!-- /sidebar menu -->
 
                     <!-- /menu footer buttons -->
@@ -80,7 +80,7 @@
             <!-- top navigation -->
             <div class="top_nav">
 
-              @include('admin.navmenu')
+              @include('user.navmenu')
 
             </div>
             <!-- /top navigation -->
@@ -91,7 +91,7 @@
                     <div class="page-title">
                         <div class="title_left">
                             <h3>
-                   Edit Admin
+                   Edit User
                     <!-- <small>
                         Some examples to get you started
                     </small> -->
@@ -105,7 +105,7 @@
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
-                            @include('content.editingadmin')
+                            @include('content.editinguser')
                             </div>
                         </div>
 

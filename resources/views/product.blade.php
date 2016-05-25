@@ -26,16 +26,27 @@
     <li><a href="{{route('logout')}}">Logout<i class="fa fa-sign-out right"></i></a></li>
   </ul>
   <ul id="dropdown2" class="dropdown-content">
+    <li><a href="{{route('product')}}"><i class="fa fa-circle right"></i>All Category</a></li>
     <li><a href="{{route('food')}}"><i class="fa fa-cutlery right"></i>Makanan</a></li>
     <li><a href="{{route('drink')}}"><i class="fa fa-glass right"></i>Minuman</a></li>
   </ul>
 
+<!--   <ul id="dropdown3" class="dropdown-content">
+    <form action="{{route('sortproduct')}}" method="POST">
+             {!! csrf_field() !!}
+     <li>  <button value="nama" type="submit" name="action">Name</button></li>
+    <li>  <button value="harga" type="submit" name="action">Price</button></li>
+    </form>
+  </ul> -->
+
+
 <div class="navbar-fixed">
   <nav class="teal lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#!" class="brand-logo"><img class="responsive-img" src="img/carasaSmall.png"></a>
+    <div class="nav-wrapper container"><a id="logo-container" href="{{route('product')}}" class="brand-logo"><img class="responsive-img" src="img/carasaSmall.png"></a>
       <ul class="right hide-on-med-and-down">
         <!-- Dropdown Trigger -->
         <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Choose Category<i class="material-icons right">arrow_drop_down</i></a></li>
+<!--         <li><a class="dropdown-button" href="#!" data-activates="dropdown3">Sort by<i class="material-icons right">arrow_drop_down</i></a></li> -->
         <li>
           <form>
             <div class="input-field">
@@ -61,6 +72,7 @@
           </form>
         </li>
         <li><h6>CATEGORY</h6></li>
+        <li><a href="{{route('product')}}"><i class="fa fa-circle right"></i>All Category</a></li>
         <li><a href="{{route('food')}}"><i class="fa fa-cutlery right"></i>Makanan</a></li>
         <li><a href="{{route('drink')}}"><i class="fa fa-glass right"></i>Minuman</a></li>
         <li><h6>{{ Auth::user()->nama }}</h6></li>
@@ -112,13 +124,31 @@
       </button>
     </div>
   </div>
+  <br/>
+  <br/>
+
+  <form action="{{URL::to('/search/')}}" method = "POST">
+    {!! csrf_field() !!}
+    <input type="text" class="form-control" name="keyword" placeholder="Search Product">
+    <span class="input-group-btn">
+    <button class="btn btn-default" type="Submit">Search Product</button>
+  </form>
+
+
+  <form action="{{route('sortproduct')}}" method="POST">
+    {!! csrf_field() !!}
+    <select class="browser-default" name="sortselect">
+      <option value="nama">Nama</option>
+      <option value="harga">Harga</option>
+    </select>
+    <button type="submit" name="action">Sort</button>
+  </form>
 
   <!-- Modal Add to Cart Structure -->
   @foreach ($product as $products)
   <div id="modal{{$products->product_id}}" class="modal">
     <div class="modal-content">
     <h4 class="red-text">{{$products -> nama}}</h4>
-
     <div class="row">
       <img class="col s6" src="{{$products->foto}}">
       <form class="col s6">
@@ -126,7 +156,7 @@
           <div class="input-field">
             <i class="material-icons prefix">mode_edit</i>
             <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-            <label for="icon_prefix2">Catatan</label>
+          <label for="icon_prefix2">Catatan</label>
           </div>
           <div>
             <p class="range-field">
@@ -175,8 +205,10 @@
     @endforeach
     </div>
 
-
-    <div class="right">
+    <div class="right">    
+      {!! $product->render() !!}
+    </div>
+<!--     <div class="right">
       <ul class="pagination">
         <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
         <li class="active"><a href="#!">1</a></li>
@@ -186,7 +218,9 @@
         <li class="waves-effect"><a href="#!">5</a></li>
         <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
       </ul>
-    </div>
+    </div> -->
+
+
     <div class="progress">
       <div class="determinate" style="width: 70%"></div>
     </div>
