@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class EditTest extends TestCase
+class ProductTest extends TestCase
 {
     /**
      * A basic test example.
@@ -15,13 +15,12 @@ class EditTest extends TestCase
     use WithoutMiddleware;
 
 
-    public function testNewAdminEdit()
+    public function testRetrieveProduct()
     {
-        $baseUrl = 'http://localhost:8000/apicarasa/editadmin';
-         $this->put($baseUrl, ['id'=>'aiqx', 'name'=>'yusuf'])
-              ->seeJson([
-                 'message' =>"Edit Admin Success!",
+        $baseUrl = 'http://localhost:8000/apicarasa/product';
+        $this->visit($baseUrl)
+             ->seeJson([
+                 'message' =>"Product Retrieval Success!",
              ]);
     }
 }
-?>
