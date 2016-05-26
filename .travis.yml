@@ -10,6 +10,10 @@ env:
     - APP_DEBUG=true
     - APP_KEY=qQYZ6ZiDV36vjkltjkyAaMUxQP504w5U
     - DB_CONNECTION=mysql
+    - DB_HOST=sql6.freemysqlhosting.net
+    - DB_DATABASE=sql6117053
+    - DB_USERNAME=sql6117053
+    - DB_PASSWORD=ekj7pAk4F6
     - CACHE_DRIVER=file
     - SESSION_DRIVER=file
     - QUEUE_DRIVER=sync
