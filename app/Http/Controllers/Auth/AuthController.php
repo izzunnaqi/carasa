@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
 use App\Models\Person;
 use Auth;
-use Validator;
 use Illuminate\Contracts\Auth\Guard;
-use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
-use App\Http\Requests\Auth\LoginRequest;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -27,19 +27,16 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
-
-
+   /**
+    * Create a new authentication controller instance.
+    *
+    * @return void
+    */
    protected $redirectPath = '/dashboard';
 
-
     public function __construct(Guard $auth, Person $person)
-    {   
-        $this->person = $person; 
+    {
+        $this->person = $person;
         $this->auth = $auth;
         //$this->middleware('guest', ['except' => 'getLogout']);
     }
@@ -47,7 +44,8 @@ class AuthController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     /**protected function validator(array $data)
@@ -62,7 +60,8 @@ class AuthController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return User
      */
 
@@ -84,35 +83,38 @@ class AuthController extends Controller
     */
     public function getLogin()
     {
-        if(Auth::check())
-        {
+        if (Auth::check()) {
             return redirect('/dashboard');
         }
+
         return view('content.login');
     }
-    
-    public function postLogin(LoginRequest $request) {
-       if($this->validate($request, [
+
+    public function postLogin(LoginRequest $request)
+    {
+        if ($this->validate($request, [
                 'username' => 'required', 'password' => 'required',
             ]));
-    
-            $credentials = $request->only('username', 'password');
-    
-            if ($this->auth->attempt($credentials, $request->has('remember')))
-            {
-                if (Auth::user()->role=='admin') {
-                    return redirect()->intended('/dashboard');         
-                } else {
-                    return redirect()->intended('/product');
-                }
+
+        $credentials = $request->only('username', 'password');
+
+        if ($this->auth->attempt($credentials, $request->has('remember'))) {
+            if (Auth::user()->role == 'admin') {
+                return redirect()->intended('/dashboard');
+            } else {
+                return redirect()->intended('/product');
             }
-            return redirect('/login')->withErrors([
+        }
+
+        return redirect('/login')->withErrors([
             'username' => 'The username or the password is invalid. Please try again.',
              ]);
     }
+
     public function getLogout()
     {
         $this->auth->logout();
+
         return redirect('/login');
     }
 }
