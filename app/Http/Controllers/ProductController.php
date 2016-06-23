@@ -2,13 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use Auth;
-use Hash;
-use App\Http\Controllers\Controller;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -19,37 +14,34 @@ class ProductController extends Controller
      */
     public function index()
     {
-
         $product = Product::paginate(6);
 
-        return view('product', compact('product'));        
+        return view('product', compact('product'));
     }
 
     /**
-     * Display food category
-     * 
+     * Display food category.
+     *
      * @return $food
      */
-    public function filterFood() 
+    public function filterFood()
     {
         $food = Product::where('id_kategori', '=', '1')->paginate(6);
 
         return view('food', compact('food'));
-
     }
 
-    /**
-     * Display drink category
-     * 
-     * @return $drink
-     */
-     public function filterDrink() 
-    {
-        $drink = Product::where('id_kategori', '=', '2')->paginate(6);
+     /**
+      * Display drink category.
+      *
+      * @return $drink
+      */
+     public function filterDrink()
+     {
+         $drink = Product::where('id_kategori', '=', '2')->paginate(6);
 
-        return view('drink', compact('drink'));
-
-    }
+         return view('drink', compact('drink'));
+     }
 
     /**
      * Show the form for creating a new resource.
@@ -64,7 +56,8 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -74,22 +67,25 @@ class ProductController extends Controller
 
     public function sort(Request $request)
     {
-        $string =  $request->input('sortselect');
-        $product = Product::orderBy($string,'ASC')->paginate(6);
-        return view('product', compact('product'));   
+        $string = $request->input('sortselect');
+        $product = Product::orderBy($string, 'ASC')->paginate(6);
+
+        return view('product', compact('product'));
     }
 
     public function search(Request $request)
     {
-        $key=$request->get('keyword');
-        $product = Product::where('nama','like','%'.$key.'%')->paginate(6);
+        $key = $request->get('keyword');
+        $product = Product::where('nama', 'like', '%'.$key.'%')->paginate(6);
+
         return view('product', compact('product'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -100,7 +96,8 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -111,8 +108,9 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -123,7 +121,8 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

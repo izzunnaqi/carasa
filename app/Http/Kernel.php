@@ -26,11 +26,11 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authenticate::class,
+        'auth'       => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'csrf'=> \App\Http\Middleware\VerifyCsrfToken::class,
-        'apiauth'=>\App\Http\Middleware\ApiAuth::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'admin' => \App\Http\Middleware\AdminMiddleware::class
+        'csrf'       => \App\Http\Middleware\VerifyCsrfToken::class,
+        'apiauth'    => \App\Http\Middleware\ApiAuth::class,
+        'guest'      => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'admin'      => \App\Http\Middleware\AdminMiddleware::class,
     ];
 }

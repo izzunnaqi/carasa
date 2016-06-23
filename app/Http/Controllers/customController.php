@@ -6,8 +6,8 @@ use Illuminate\Routing\Controller as BaseController;
 
 class customController extends BaseController
 {
-	function index()
-	{
-		return view('index');
-	}
+    public function index()
+    {
+        return view('index');
+    }
 }
