@@ -38,9 +38,10 @@
         <!-- Dropdown Trigger -->
         <li><a class="dropdown-button" href="" data-activates="dropdown2">Choose Category<i class="material-icons right">arrow_drop_down</i></a></li>
         <li>
-          <form>
+          <form action="{{URL::to('/search/')}}" method = "POST">
+            {!! csrf_field() !!}
             <div class="input-field">
-              <input id="search" type="search" required>
+              <input id="search" type="text" class="form-control" name="keyword" placeholder="Search Product">
               <label for="search"><i class="material-icons">search</i></label>
               <i class="material-icons">close</i>
             </div>
@@ -117,24 +118,6 @@
   <br/>
   <br/>
 
-  <form action="{{URL::to('/search/')}}" method = "POST">
-    {!! csrf_field() !!}
-      <input type="text" class="form-control" name="keyword" placeholder="Search Product">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="Submit">Search Product</button>
-   </form>
-
-
-  <form action="{{route('sortproduct')}}" method="POST">
-           {!! csrf_field() !!}
-    <select class="browser-default" name="sortselect">
-    <option value="nama">Nama</option>
-    <option value="harga">Harga</option>
-    </select>
-       <button type="submit" name="action">Sort
-        </button>
-  </form>
-
   
   <!-- Modal Add to Cart Structure -->
   @foreach ($food as $foods)
@@ -183,6 +166,27 @@
           <a href="{{route('food')}}">Makanan</a>
         </div> <h6></h6>
 
+    <div class="row">
+      <div class="col s4 right">
+        <div class="input-field">
+          <form action="{{route('sortproduct')}}" method="POST">
+                {!! csrf_field() !!}
+                <div class="col s5">
+                <select name="sortselect">
+                  <option value="nama">Nama</option>
+                  <option value="harga">Harga</option>
+                </select>
+                <label>Sort by</label>
+                </div>
+                <div class="col s2">
+                  <button class="btn waves-effect" type="submit" name="action">Sort</button>
+                </div>
+          </form>
+        </div>
+      </div>
+    </div>  
+
+
     <div class='row'>
      @foreach ($food as $foods) 
       <div class="col s4">
@@ -201,26 +205,15 @@
     </div>
 
 
-   <!--  <div class="right">
-      <ul class="pagination">
-        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-        <li class="active"><a href="#!">1</a></li>
-        <li class="waves-effect"><a href="#!">2</a></li>
-        <li class="waves-effect"><a href="#!">3</a></li>
-        <li class="waves-effect"><a href="#!">4</a></li>
-        <li class="waves-effect"><a href="#!">5</a></li>
-        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+    <div class="right">  
+      <ul class="pagination" >
+        {!! $food->render() !!}
       </ul>
-    </div> -->
-    <div class="right">    
-      {!! $food->render() !!}
     </div>
     <div class="progress">
       <div class="determinate" style="width: 70%"></div>
     </div>
   </div>
-
- 
 
     <footer class="page-footer">
       <div class="container">
@@ -254,12 +247,16 @@
   <script src="../js/materialize.js"></script>
   <script src="../js/init.js"></script>
   <script>
-     $(document).ready(function(){
+    $(document).ready(function(){
       // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
       $('.modal-trigger').leanModal();
       // $('#modal0').openModal();
       // $('#modal0').closeModal();
-  });
+    });
+
+    $(document).ready(function() {
+      $('select').material_select();
+    });
   </script>
 </body>
 </html>
